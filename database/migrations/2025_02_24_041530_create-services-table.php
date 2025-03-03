@@ -24,11 +24,40 @@ return new class extends Migration
             
             $table->unsignedBigInteger("category_id");
             $table->foreign("category_id")->references("id")->on("categories")->onDelete("cascade")->onUpdate("cascade");
-
-
-
-
         });
+        DB::table('services')->insert([
+            [
+            'service_name' => "HairCut",
+            'description' => "paGwapa",
+            'price' => "70",
+            'duration' => "07:00:00",
+            'status' => "Active",
+            'image_path' => "Haircut"
+           
+            ],
+        ]);
+        DB::table('services')->insert([
+            [
+            'service_name' => "Rebond",
+            'description' => "paGwapa",
+            'price' => "70",
+            'duration' => "09:00:00",
+            'status' => "Inactive",
+            'image_path' => "Rebond"
+            
+            ],
+        ]);
+        DB::table('services')->insert([
+            [
+            'service_name' => "Manicure",
+            'description' => "paGwapa",
+            'price' => "70",
+            'duration' => "11:00:00",
+            'status' => "Active",
+            'image_path' => "Manicure"
+            
+            ]
+        ]);
     }
 
     /**

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         schema::create('bookings', function(Blueprint $table){
             $table->id();
-            $table->date(column: "booking_date");
+            $table->date("booking_date");
             $table->time("booking_time");
             $table->enum("status",["pending","confirmed","completed","canceled","no_show"]);
             $table->string("payment_status",50);
@@ -27,12 +27,31 @@ return new class extends Migration
             $table->foreign("modifier_id")->references("id")->on("price_modifiers")->onDelete("cascade")->onUpdate("cascade");
             $table->foreign("customer_id")->references("id")->on("customers")->onDelete("cascade")->onUpdate("cascade");
             $table->foreign("staff_id")->references("id")->on("staff")->onDelete("cascade")->onUpdate("cascade");
-
-
-
-
-
         });
+        DB::table('bookings')->insert([
+            [
+            'booking_date' => "03-04-2025",
+            'booking_time' => "7:30AM",
+            'status' => "confirmed",
+            'payment_status' => "Paid"
+            ],
+        ]);
+            DB::table('services')->insert([
+            [
+            'booking_date' => "03-04-2025",
+            'booking_time' => "7:30AM",
+            'status' => "confirmed",
+            'payment_status' => "Paid"
+            ],
+        ]);
+            DB::table('services')->insert([
+            [
+            'booking_date' => "03-04-2025",
+            'booking_time' => "7:30AM",
+            'status' => "confirmed",
+            'payment_status' => "Paid"
+            ]
+        ]);
     }
 
     /**

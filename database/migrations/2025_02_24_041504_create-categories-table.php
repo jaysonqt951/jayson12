@@ -19,6 +19,21 @@ return new class extends Migration
 
 
         });
+        DB::table('categories')->insert([
+            [
+            'name' => "HairCut",
+            ],
+        ]);
+        DB::table('categories')->insert([
+            [
+            'name' => "Rebond",
+            ],
+        ]);
+        DB::table('categories')->insert([
+            [
+            'name' => "Manicure",
+            ]
+        ]);
     }
 
     /**

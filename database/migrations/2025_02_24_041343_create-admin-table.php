@@ -23,6 +23,30 @@ return new class extends Migration
             
            
         });
+        DB::table('admin')->insert([
+            [
+            'fullname' => "Jayson Campion",
+            'email' => "occ.campionjayson@gmail.com",
+            'username' => "jaysonqt",
+            'password' => Hash::make("jaysonqtqwe"),
+            ],
+        ]);
+            DB::table('admin')->insert([
+            [
+            'fullname' => "Jayson Campion",
+            'email' => "occ.campionjayson@gmail.com",
+            'username' => "jaysonqt",
+            'password' => Hash::make("jaysonqtqwe"),
+            ],
+        ]);
+        DB::table('admin')->insert([
+            [
+            'fullname' => "Jayson Campion",
+            'email' => "occ.campionjayson@gmail.com",
+            'username' => "jaysonqt",
+            'password' => Hash::make("jaysonqtqwe"),
+            ]
+        ]);
     }
 
     /**

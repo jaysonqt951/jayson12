@@ -19,6 +19,27 @@ return new class extends Migration
             $table->timestamps();
 
         });
+        DB::table('customers')->insert([
+            [
+            'name' => "lowisita Camiguin",
+            'phone_number' => "09936150541",
+            'email' => "occ.campionjayson@gmail.com",
+            ],
+        ]);
+            DB::table('services')->insert([
+            [
+            'name' => "lowisita Camiguin",
+            'phone_number' => "09936150541",
+            'email' => "occ.campionjayson@gmail.com",
+            ],
+        ]);
+            DB::table('services')->insert([
+            [
+            'name' => "lowisita Camiguin",
+            'phone_number' => "09936150541",
+            'email' => "occ.campionjayson@gmail.com",
+            ]
+        ]);
     }
 
     /**

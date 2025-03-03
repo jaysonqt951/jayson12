@@ -24,6 +24,57 @@ return new class extends Migration
 
 
         });
+        $adminId = DB::table('admin')->insert([
+            [
+            'fullname' => "Jayson Campion",
+            'email' => "occ.campionjayson@gmail.com",
+            'username' => "jaysonqt",
+            'password' => Hash::make("jaysonqtqwe"),
+            ],
+        ]);
+        $adminId = DB::table('admin')->insert([
+            [
+            'fullname' => "Jayson Campion",
+            'email' => "occ.campionjayson@gmail.com",
+            'username' => "jaysonqt",
+            'password' => Hash::make("jaysonqtqwe"),
+            ],
+        ]);
+        $adminId = DB::table('admin')->insert([
+            [
+            'fullname' => "Jayson Campion",
+            'email' => "occ.campionjayson@gmail.com",
+            'username' => "jaysonqt",
+            'password' => Hash::make("jaysonqtqwe"),
+            ]
+            ]);
+        DB::table('staff')->insert([
+            [
+            'fname' => "jayson campion",
+            'phone_number' => "09161432985",
+            'email' => "occ.campionjayson@gmail.com",
+            'status' => "sideline",
+            'admin_id' => $adminId
+            ],
+        ]);
+        DB::table('staff')->insert([
+            [
+            'fname' => "marites campion",
+            'phone_number' => "09936150541",
+            'email' => "occ.maritescampion@gmail.com",
+            'status' => "sideline",
+            'admin_id' => $adminId
+            ],
+        ]);
+        DB::table('staff')->insert([
+            [
+            'fname' => "gerald campion",
+            'phone_number' => "09355169361",
+            'email' => "occ.gearaldcampion@gmail.com",
+            'status' => "sideline",
+            'admin_id' => $adminId
+            ]
+        ]);
     }
 
     /**

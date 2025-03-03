@@ -26,13 +26,28 @@ return new class extends Migration
             $table->foreign("booking_id")->references("id")->on("bookings")->onDelete("cascade")->onUpdate("cascade");
             $table->foreign("services_id")->references("id")->on("services")->onDelete("cascade")->onUpdate("cascade");
             $table->foreign("staff_id")->references("id")->on("staff")->onDelete("cascade")->onUpdate("cascade");
-           
-
-
-
-
-
         });
+        DB::table('bookings_services')->insert([
+            [
+            'start_time' => "7:30AM",
+            'end_time' => "4:30PM",
+            'price' => "70",
+            ],
+        ]);
+            DB::table('services')->insert([
+            [
+            'start_time' => "7:30AM",
+            'end_time' => "4:30PM",
+            'price' => "70",
+            ],
+        ]);
+            DB::table('services')->insert([
+            [
+            'start_time' => "7:30AM",
+            'end_time' => "4:30PM",
+            'price' => "70",
+            ]
+        ]);
     }
 
     /**

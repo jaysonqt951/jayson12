@@ -15,17 +15,35 @@ return new class extends Migration
             $table->id();
             $table->string("modifier_name",255);
             $table->timestamps();
-            $table->decimal(column: "price_increase");
+            $table->decimal("price_increase");
             $table->text("description");
 
             $table->unsignedBigInteger("category_id");
             $table->unsignedBigInteger("service_id");
             $table->foreign("service_id")->references("id")->on("services")->onDelete("cascade")->onUpdate("cascade");
             $table->foreign("category_id")->references("id")->on("categories")->onDelete("cascade")->onUpdate("cascade");
-
-
-
         });
+        DB::table('price_modifiers')->insert([
+            [
+            'modifier_name' => "Haircut",
+            'price_increase' => "100",
+            'description' => "paGwapa",
+            ],
+        ]);
+            DB::table('services')->insert([
+            [
+            'modifier_name' => "Haircut",
+            'price_increase' => "100",
+            'description' => "paGwapa",
+            ],
+        ]);
+            DB::table('services')->insert([
+            [
+            'modifier_name' => "Haircut",
+            'price_increase' => "100",
+            'description' => "paGwapa",
+            ]
+        ]);
     }
 
     /**
