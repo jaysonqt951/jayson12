@@ -15,4 +15,19 @@ class Bookings extends Model
         "status",
         "payment_status"
     ];
+
+    public function customer()
+    {
+        return $this->belongsTo(Customers::class, "customer_id", "customer_id");
+    }
+
+    public function services()
+    {
+        return $this->hasMany(Bookings::class, "booking_id", "booking_id");
+    }
+
+    public function staff()
+    {
+        return $this->belongsTo(Staff::class, "staff_id", "staff_id");
+    }
 }

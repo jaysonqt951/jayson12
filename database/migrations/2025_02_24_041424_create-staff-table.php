@@ -1,8 +1,10 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
 
 return new class extends Migration
 {
@@ -13,10 +15,10 @@ return new class extends Migration
     {
         schema::create('staff', function(Blueprint $table){
             $table->id();
-            $table->string("fname",255);
+            $table->string("fullname",255);
             $table->string("phone_number",15)->unique();
             $table->string("email",255)->unique();
-            $table->string("status",20);
+            $table->string("status", ["active","inactive"], 20);
             $table->timestamps();
 
             $table->unsignedBigInteger("admin_id");
@@ -27,25 +29,26 @@ return new class extends Migration
         $adminId = DB::table('admin')->insert([
             [
             'fullname' => "Jayson Campion",
+            'phone_number' => '09161432985',
             'email' => "occ.campionjayson@gmail.com",
-            'username' => "jaysonqt",
-            'password' => Hash::make("jaysonqtqwe"),
+            'status' => 'active',
+
             ],
         ]);
         $adminId = DB::table('admin')->insert([
             [
-            'fullname' => "Jayson Campion",
-            'email' => "occ.campionjayson@gmail.com",
-            'username' => "jaysonqt",
-            'password' => Hash::make("jaysonqtqwe"),
+                'fullname' => "Gerald Campion",
+                'phone_number' => '09355169361',
+                'email' => "exortmiracle.1@gmail.com",
+                'status' => 'active',
             ],
         ]);
         $adminId = DB::table('admin')->insert([
             [
-            'fullname' => "Jayson Campion",
-            'email' => "occ.campionjayson@gmail.com",
-            'username' => "jaysonqt",
-            'password' => Hash::make("jaysonqtqwe"),
+                'fullname' => "Marites Campion",
+                'phone_number' => '09531684945',
+                'email' => "occ.maritescampion@gmail.com",
+                'status' => 'active',
             ]
             ]);
         DB::table('staff')->insert([
@@ -53,25 +56,25 @@ return new class extends Migration
             'fname' => "jayson campion",
             'phone_number' => "09161432985",
             'email' => "occ.campionjayson@gmail.com",
-            'status' => "sideline",
+            'status' => "active",
             'admin_id' => $adminId
             ],
         ]);
         DB::table('staff')->insert([
             [
-            'fname' => "marites campion",
-            'phone_number' => "09936150541",
-            'email' => "occ.maritescampion@gmail.com",
-            'status' => "sideline",
-            'admin_id' => $adminId
-            ],
-        ]);
-        DB::table('staff')->insert([
-            [
-            'fname' => "gerald campion",
+            'fname' => "Gerald campion",
             'phone_number' => "09355169361",
-            'email' => "occ.gearaldcampion@gmail.com",
-            'status' => "sideline",
+            'email' => "exortmiracle.1@gmail.com",
+            'status' => "active",
+            'admin_id' => $adminId
+            ],
+        ]);
+        DB::table('staff')->insert([
+            [
+            'fname' => "Marites campion",
+            'phone_number' => "09531684945",
+            'email' => "occ.maritescampion@gmail.com",
+            'status' => "active",
             'admin_id' => $adminId
             ]
         ]);
@@ -82,6 +85,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        schema::dropIfExists("staff");
+        Schema::dropIfExists("staff");
     }
 };

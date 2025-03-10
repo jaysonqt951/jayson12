@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
 {
@@ -23,7 +24,7 @@ return new class extends Migration
             $table->unsignedBigInteger("staff_id");
             $table->unsignedBigInteger("customer_id");
             $table->unsignedBigInteger("modifier_id");
-           
+
             $table->foreign("modifier_id")->references("id")->on("price_modifiers")->onDelete("cascade")->onUpdate("cascade");
             $table->foreign("customer_id")->references("id")->on("customers")->onDelete("cascade")->onUpdate("cascade");
             $table->foreign("staff_id")->references("id")->on("staff")->onDelete("cascade")->onUpdate("cascade");

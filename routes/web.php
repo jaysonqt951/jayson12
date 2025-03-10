@@ -1,18 +1,11 @@
 <?php
 
+use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/.j1/Transaction', action:[TransactionController::class, 'getBookings']);
+Route::get('/.j2/Transaction', action: [TransactionController::class, 'getBookingsData']);
+Route::get('/.j3/Transaction', action: [TransactionController::class, 'getBookingsChallenging']);
+Route::get('/.j4/Transaction', action: [TransactionController::class, 'getBookingsDifficult']);

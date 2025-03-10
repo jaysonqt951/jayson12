@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
 {
@@ -20,8 +21,8 @@ return new class extends Migration
             $table->enum("status",["active","inactive"]);
             $table->string("image_path");
             $table->timestamps();
-    
-            
+
+
             $table->unsignedBigInteger("category_id");
             $table->foreign("category_id")->references("id")->on("categories")->onDelete("cascade")->onUpdate("cascade");
         });
@@ -33,7 +34,7 @@ return new class extends Migration
             'duration' => "07:00:00",
             'status' => "Active",
             'image_path' => "Haircut"
-           
+
             ],
         ]);
         DB::table('services')->insert([
@@ -44,7 +45,7 @@ return new class extends Migration
             'duration' => "09:00:00",
             'status' => "Inactive",
             'image_path' => "Rebond"
-            
+
             ],
         ]);
         DB::table('services')->insert([
@@ -55,7 +56,7 @@ return new class extends Migration
             'duration' => "11:00:00",
             'status' => "Active",
             'image_path' => "Manicure"
-            
+
             ]
         ]);
     }
